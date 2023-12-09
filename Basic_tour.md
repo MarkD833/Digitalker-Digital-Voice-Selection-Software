@@ -13,6 +13,24 @@ IBURN  - ROM image programming for the Starplex
 VLC    - vocabulary list compiler
 VLE    - vocabulary list editor
 ```
+There are 4 "VERIFY" files which are the key:
+```
+VERIFY.ROM – prebuilt ROM image that can be burnt to FLASH
+VERIFY.SUB – a script that builds the ROM image
+VERIFY.VOC – source file of words/phrases/sounds to speak
+VERIFY.WRK – an intermediate work file
+```
+There are 2 library files that hold the vocabulary:
+```
+STDARC.DAT - database of sounds, words, numbers etc
+STDARC.IDX - likely the index into the database
+```
+And there are 2 additional files:
+```
+CRCKLIST.CRC - this it a list of checksums for the various files
+DVSSBT.OVR   - likely some sort of overlay file used by the executables
+```
+
 
 Once I got the DVSS programs to run on my CP/M system, it became apparent that it was a real pain trying to transfer files between my CP/M system and my Windows 10 PC. This is most likely due to my inexperience with the CP/M OS.
 
