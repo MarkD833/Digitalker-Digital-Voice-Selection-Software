@@ -1,432 +1,88 @@
-# A basic tour of the Digitalker DVSS files
+# The VERIFY.VOC file format
 
-This text documents what I have discovered to date about the DVSS suite.
+The VERIFY.VOC file is a plain text file that holds the words and phrases that are going to be built into a ROM.
 
-## The files
-
-There are 6 executable files:
+Here’s the contents of the VERIFY.VOC file from the DVSS archive:
 ```
-ALIST  - list the contents of an archive
-CRCK   – checksum calculator
-IBUILD - Digitalker I ROM image builder
-IBURN  - ROM image programming for the Starplex
-VLC    - vocabulary list compiler
-VLE    - vocabulary list editor
+#
+# This is a test vocabulary used to verify DVSS
+#
+
+0: welcome sil40 2 sil80 d sil20 v sil20 s sil20 s
+
+1: enter sil40 1 sil20 million sil40 dollar -s.ms1
+
+2: warning sil640 danger.fue sil160 evacuate sil160 \
+	extreme sil40 failure
+
+3: get sil40 ready sil40 4 sil40 a sil40 1 sil40 \
+	nano-.rp second sil40 delay.r
+
+4: get sil40 out sil40 of sil40 the.r sil20 rain
+
+10: spell sil40 the.r sil40 word sil320 wednesday
+
+12: that.r sil40 is.r sil40 correct
 ```
-There are 4 "VERIFY" files which are the key:
+I programmed the VERIFY.ROM file into my flash chip on my Digitalker board. 
+
+When I instruct Digitalker to say word/phrase 0, it speaks “WELCOME TO D V S S”.
+
+For word/phrase 1, it speaks “ENTER 1 MILLION DOLLARS”.
+
+For word/phrase 2, it speaks “WARNING DANGER EVACUATE EXTREME FAILURE”.
+
+For word/phrase 3, it speaks “GET READY FOR A ONE NANO SECOND DELAY”.
+
+For word/phrase 4, it speaks “GET OUT OF THE RAIN”.
+
+For word/phrase 10, it speaks “SPELL THE WORD WEDNESDAY”.
+
+For word/phrase 12, it speaks “THAT IS CORRECT”.
+
+## The format of VERIFY.VOC
+
+This is what I’ve discovered so far about the format of the VERIFY.VOC file.
+
+A line starting with a # is a comment line and is ignored.
+
+A line ending with a \ indicates a continuation on the next line.
+
+Each line ends with a CR (ASCII code 13) and an LF (ASCII code 10).
+
+There is a blank line between each entry in the file consisting of just a CR and an LF. I don’t know if this is purely cosmetic or a requirement at the moment.
+
+A new ROM word (or phrase) starts with a number and a colon. The number is the same number that you pass to the Digitalker chip when selecting what to speak.
+
+Each number must always be larger than the previous number and the numbers don’t have to be sequential as you can see from the VERIFY.VOC file.
+ 
+After the colon there is a space and then the name of the sound in the archive file STDARC.DAT. This is the name as reported by the ALIST command. I don’t know if this is case sensitive or not so probably best to just stick with lower case.
+
+If you wanted word 0 in your ROM to be the word “busy”, then the line would look like this:
 ```
-VERIFY.ROM – prebuilt ROM image that can be burnt to FLASH
-VERIFY.SUB – a script that builds the ROM image
-VERIFY.VOC – source file of words/phrases/sounds to speak
-VERIFY.WRK – an intermediate work file
+0: busy
 ```
-There are 2 library files that hold the vocabulary:
+If you wanted word 5 in your ROM to be the phrase “going up”, then there are 3 parts to it – the word “going”, a pause and the word “up”.
+
+The entries called sil<xxx> would appear to be periods of silence to be used between words. The number would appear to be the length of the silent period in milliseconds.
+
+To add the phrase “going up” as word 5 in your ROM, then the line would look like this:
 ```
-STDARC.DAT - database of sounds, words, numbers etc
-STDARC.IDX - likely the index into the database
+5: going sil40 up
 ```
-And there are 2 additional files:
-```
-CRCKLIST.CRC - this it a list of checksums for the various files
-DVSSBT.OVR   - likely some sort of overlay file used by the executables
-```
+You should experiment with the various periods of silence to see which makes your phrase sound better.
 
-## A tour of some of the files in more detail
+The first few sounds in the vocabulary archive appear to be word endings. Looking at the example ROM, the word “dollar” is made into “dollars” by speaking the –s.ms1 sound immediately after the word.
 
-The DVSS files are on the B drive. Within the CP/M emulator just type B: to change to the B drive.
+I’ve not had a chance to discover the difference between –s.ms1 and –s.ms2 yet.
 
-I found that for most files, typing the name of the file followed by a ? (question mark) caused the program to display some usage information. For each of the programs I tried on the CP/M emulator, I've shown the output generated.
+There are also word endings to convert words like “lock” into “locked” and “close” into “closing”. 
 
----
-### ALIST.COM - lists the contents of an archive
+There are other words in the vocabulary that have suffixes such as .m, .r, .s, .mt and .p. I don’t know what these signify – perhaps a linguist may know the answer to that.
 
-Typing ALIST ? results in the following:
-```
-DVSS  <alist>  v1.0
-Copyright (C) 1983
-National Semiconductor Corporation
+Then there are what appear to be duplicate words such as wait and wait.r as well as waiting and waiting.s. I need to build a ROM with these words in it to see what audio differences there are.
 
-Name:
-        alist -- list the contents of an archive
-Usage:
-        alist [-ln] [-p] [-t] archive [file]
-Options:
-        '-ln' -- "n" is the listing page length (default=66)
-        '-p' -- send output to printer
-        '-t' -- terse mode (suppress informational messages)
-Arguments:
-        'archive' -- the name of the archive to list
-        'file' -- the name of the output file to create
-```
-I then made a guess and typed:
-```
-alist stdarc
-```
-This caused the ALIST program to dump out the contents of the STDARC archive. You can see the output of 600+ vocabulary entries [here](https://github.com/MarkD833/Digitalker-Digital-Voice-Selection-Software/blob/main/Vocabulary.md).
+Note that the text file does need to be padded with the ASCII character 27 (0x1A) so that the file is multiples of 128 bytes long. This seems to be related to CP/M and how it handles file buffers.
 
----
-### CRCK.COM – CRC calculation
+If you run the VLC command on an unpadded file, then it causes VLC to report errors. 
 
-Typing CRCK ? didn't provide any useful hints, but omitting the ? did:
-```
-++NO FILE NAME SPECIFIED++
-
-To use this program:
-
-        COMMANDS:   CRCK [drive:]<filename.filetype> [F]
-
-        Examples:
-
-                CRCK MYFILE.ASM Check only MYFILE.ASM
-
-                CRCK *.ASM      Check all .ASM files
-
-                CRCK *.* F      Check all files and make file
-                                of results <CRCKLIST.CRC>
-```
-Performing a CRC check on the ALIST.COM file results in the following output:
-```
-CRCK ver 4.3 - 24K Buffer - 01/17/81 RBS
-CTL-S pauses, CTL-C aborts
-
-ALIST   .COM    CRC = 4F D0
-
-DONE
-```
-The value (checksum) reported is the same as that detailed in the CRCLIST.CRC file in the program archive.
-
----
-### IBUILD.COM – Digitalker I ROM image builder
-
-Typing IBUILD ? results in the following:
-```
-DVSS  <ibuild>  v1.0
-Copyright (C) 1983
-National Semiconductor Corporation
-
-Name:
-        ibuild -- Digitalker I ROM image builder
-Usage:
-        ibuild [-p] [-v] workfile romfile
-Options:
-        '-p' -- send output to console and printer
-        '-t' -- terse mode (suppress informational messages)
-Arguments:
-        'workfile' -- the name of an existing workfile
-        'romfile' -- the name of the ROM image file to create
-```
-If I use the work file supplied with DVSS and I run IBUILD with the command:
-```
-ibuild verify.wrk test.rom
-```
-Then I get the following output:
-```
-DVSS  <ibuild>  v1.0
-Copyright (C) 1983
-National Semiconductor Corporation
-
-Building ROM image...
-
-Workfile <VERIFY.WRK> contains 13 message(s)
-
-Message <  0>
-   Word   Instructions
-     1          9
-     2          1
-     3          7
-     4          1
-     5          5
-     6          1
-     7          6
-     8          1
-     9          7
-    10          1
-    11          7
-
-Message <  1>
-   Word   Instructions
-     1          5
-     2          1
-     3          4
-     4          1
-     5          6
-     6          1
-     7          5
-     8          4
-
-Message <  2>
-   Word   Instructions
-     1          7
-     2          2
-     3          9
-     4          1
-     5          9
-     6          1
-     7         18
-     8          1
-     9          5
-
-Message <  3>
-   Word   Instructions
-     1          9
-     2          1
-     3          6
-     4          1
-     5          6
-     6          1
-     7          3
-     8          1
-     9          4
-    10          1
-    11          3
-    12         17
-    13          1
-    14          3
-
-Message <  4>
-   Word   Instructions
-     1          9
-     2          1
-     3          6
-     4          1
-     5          4
-     6          1
-     7          5
-     8          1
-     9          3
-
-Message < 10>
-   Word   Instructions
-     1         13
-     2          1
-     3          5
-     4          1
-     5          8
-     6          1
-     7         10
-
-Message < 12>
-   Word   Instructions
-     1          5
-     2          1
-     3          5
-     4          1
-     5          8
-
-Writing ROM image to file: <TEST.ROM>
-
-
-  Message pointers:    13 (26 bytes)
-      Instructions:   274 (822 bytes)
-  Speech data used:  4523 bytes
-Speech data reused:  3758 bytes
-
-  Total bytes used:  5371 (33%)
-  Total bytes left: 11013 (67%)
-
-Run complete
-```
-The byte count at the end of the process looks useful in determining when the ROMs are getting full.
-
-It also looks like the IBUILD program is working with a pair of ROMs to give a total capacity of 16Kbytes.
-
----
-### IBURN.COM – ROM image programming for the Starplex 
-
-Typing IBURN ? results in the following:
-```
-DVSS  <iburn>  v1.0
-Copyright (C) 1983
-National Semiconductor Corporation
-
-Name:
-        iburn -- ROM image programming for the Starplex
-Usage:
-        iburn imagefile promtype
-Arguments:
-        'imagefile' -- the name of an existing ROM image file
-        'promtype' -- type of PROM to program (2716 or 2732)
-```
-“Starplex” was a National Semiconductor development system that appeared to include a PROM programmer functionality.
-
-I think this program can be ignored as the created ROMs will now be burnt using a modern PROM programmer.
-
----
-### VLC.COM – Vocabulary list compiler
-
-Typing VLC ? results in the following:
-```
-DVSS  <vlc>  v1.0
-Copyright (C) 1983
-National Semiconductor Corporation
-
-Name:
-        vlc -- vocabulary list compiler
-Usage:
-        vlc [-c] [-p] [-t] vocab archive workfile
-Options:
-        '-c' -- check mode (suppress workfile creation)
-        '-p' -- send output to console and printer
-        '-t' -- terse mode (suppress informational messages)
-Arguments:
-        'vocab' -- the name of an existing vocabulary list
-        'archive' -- the name of an existing archive
-        'workfile' -- the name of the workfile to create
-```
-If I run VLC using the supplied VERIFY.VOC file with the command:
-```
-vlc verify.voc stdarc test.wrk
-```
-Then I get the following output:
-```
-DVSS  <vlc>  v1.0
-Copyright (C) 1983
-National Semiconductor Corporation
-
-Initializing...
-
-Compiling vocabulary list...
-
-Using vocabulary list: <VERIFY.VOC>
-Using archive: <C:STDARC>
-
-
-Message <  0>
-   Word   Name
-     1    <welcome>
-     2    <sil40>
-     3    <2>
-     4    <sil80>
-     5    <d>
-     6    <sil20>
-     7    <v>
-     8    <sil20>
-     9    <s>
-    10    <sil20>
-    11    <s>
-
-Message <  1>
-   Word   Name
-     1    <enter>
-     2    <sil40>
-     3    <1>
-     4    <sil20>
-     5    <million>
-     6    <sil40>
-     7    <dollar>
-     8    <-s.ms1>
-
-Message <  2>
-   Word   Name
-     1    <warning>
-     2    <sil640>
-     3    <danger.fue>
-     4    <sil160>
-     5    <evacuate>
-     6    <sil160>
-     7    <extreme>
-     8    <sil40>
-     9    <failure>
-
-Message <  3>
-   Word   Name
-     1    <get>
-     2    <sil40>
-     3    <ready>
-     4    <sil40>
-     5    <4>
-     6    <sil40>
-     7    <a>
-     8    <sil40>
-     9    <1>
-    10    <sil40>
-    11    <nano-.rp>
-    12    <second>
-    13    <sil40>
-    14    <delay.r>
-
-Message <  4>
-   Word   Name
-     1    <get>
-     2    <sil40>
-     3    <out>
-     4    <sil40>
-     5    <of>
-     6    <sil40>
-     7    <the.r>
-     8    <sil20>
-     9    <rain>
-
-Message < 10>
-   Word   Name
-     1    <spell>
-     2    <sil40>
-     3    <the.r>
-     4    <sil40>
-     5    <word>
-     6    <sil320>
-     7    <wednesday>
-
-Message < 12>
-   Word   Name
-     1    <that.r>
-     2    <sil40>
-     3    <is.r>
-     4    <sil40>
-     5    <correct>
-
-Workfile created: <TEST.WRK>
-        Messages: <13>
-           Words: <63>
-
-Run complete
-```
-VLC seems to be ok with the sample file supplied and doesn’t report any errors.
-
----
-### VLE.COM – Vocabulary list editor
-
-Typing VLE ? results in the following:
-```
-DVSS  <vle>  v1.0
-Copyright (C) 1983
-National Semiconductor Corporation
-
-Name:
-        vle -- vocabulary list editor
-Usage:
-        vle [-t] [file]
-Options:
-        '-t' -- terse mode (suppress informational messages) 
-Arguments:
-        'file' -- the name of a new or existing vocabulary list
-```
-I assume that this is some sort of text editor that the end user would use to create the required vocabulary file.
-
-There are no clues as to what the actual commands are once the editor is running and an examination of the binary file in HxD did not reveal any further clues.
-
-If its purpose is to create the .voc file for the vocabulary list compiler, then I think VLE can be ignored and a simple plain text editor on the PC would suffice.
-
----
-### CRCLIST.CRC
-
-Viewing this file in Notepad++ (and HxD) indicates that it is an ASCII text file that seems to be padded at the end, to make the file a multiple of 128 bytes long, with the ASCII character 27 (0x1A) => SUB which appears to equate to CTRL+Z.
-
-For the program disk it contains:
-```
-VLE     .COM	CRC = 57 F2
-VLC     .COM	CRC = 14 B8
-IBUILD  .COM	CRC = FE 22
-IBURN   .COM	CRC = 5C 54
-ALIST   .COM	CRC = 4F D0
-VERIFY  .VOC	CRC = 63 FB
-VERIFY  .WRK	CRC = BF F3
-VERIFY  .ROM	CRC = D2 03
-DVSSBT  .OVR	CRC = 4C 99
-```
-For the archive disk it contains:
-```
-STDARC  .IDX	CRC = 4E 43
-STDARC  .DAT	CRC = 89 94
-```
-These files are generated by the CRCK.COM program.
