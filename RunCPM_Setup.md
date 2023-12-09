@@ -34,7 +34,12 @@ In the zip archive of RunCPM, there is a folder called DISK. Inside that folder 
 
 Your CP/M system is now setup and you can try running it by double clicking on the RunCPM.exe file. If successful, you should have a window like this one appear:
 
-![RunCPM shell]((https://github.com/MarkD833/Digitalker-Digital-Voice-Selection-Software/blob/main/images/RunCPM_shell.png)
+![RunCPM shell](https://github.com/MarkD833/Digitalker-Digital-Voice-Selection-Software/blob/main/images/RunCPM_shell.png)
 
 ## Extracting the Digitalker DVSS software from the archive files
+
+Head on over to the [bitsavers website](http://bitsavers.informatik.uni-stuttgart.de/components/national/digitalker/NSC_DIGITALKER_CPM/) and download these 2 files:
+
+> nsc_digitalker_archive_disk.img
+> nsc_digitalker_porgam_disk.img  (their spelling, not mine!)
 

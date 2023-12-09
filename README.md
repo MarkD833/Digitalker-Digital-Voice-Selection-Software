@@ -21,4 +21,4 @@ What follows is based on the notes I made at the time - enjoy!
 
 I started my DVSS experimenting on my RC2014 CP/M system but then decided to look for a CP/M emulation that would allow experimenting without the need for any CP/M hardware.
 
-After a short search, I came across [RunCPM](https://github.com/MockbaTheBorg/RunCPM). You can read my walkthrough guide here on how I set the CP/M emulator on my Windows 10 PC.
+After a short search, I came across [RunCPM](https://github.com/MockbaTheBorg/RunCPM). You can read my [walkthrough guide](https://github.com/MarkD833/Digitalker-Digital-Voice-Selection-Software/blob/main/RunCPM_Setup.md) on how I set the CP/M emulator on a Windows 10 PC.
