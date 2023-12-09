@@ -29,3 +29,10 @@ This section can be skipped as it's just a basic tour of the files and what I th
 
 Once I had my CP/M emulator setup with the DVSS software, I had a browse around the files and [documented what I found](https://github.com/MarkD833/Digitalker-Digital-Voice-Selection-Software/blob/main/Basic_tour.md) and my thoughts as I explored.
 
+# The VERIFY.VOC file
+
+The VERIFY.VOC file is used to specify the words, phrases and sounds that the user wants to include in the final ROMs.
+
+I've [documented what I've discovered](https://github.com/MarkD833/Digitalker-Digital-Voice-Selection-Software/blob/main/Verify.md) about this file as it is the key to creating a custom ROM set.
+
+
