@@ -37,6 +37,7 @@ The DVSS files are on the B drive. Within the CP/M emulator just type B: to chan
 
 I found that for most files, typing the name of the file followed by a ? (question mark) caused the program to display some usage information. For each of the programs I tried on the CP/M emulator, I've shown the output generated.
 
+---
 ### ALIST.COM - lists the contents of an archive
 
 Typing ALIST ? results in the following:
@@ -61,8 +62,9 @@ I then made a guess and typed:
 ```
 alist stdarc
 ```
-This caused the ALIST program to dump out the contents of the STDARC archive. You can see the output of 600+ entries [here].
+This caused the ALIST program to dump out the contents of the STDARC archive. You can see the output of 600+ vocabulary entries [here](https://github.com/MarkD833/Digitalker-Digital-Voice-Selection-Software/blob/main/Vocabulary.md).
 
+---
 
 Once I got the DVSS programs to run on my CP/M system, it became apparent that it was a real pain trying to transfer files between my CP/M system and my Windows 10 PC. This is most likely due to my inexperience with the CP/M OS.
 

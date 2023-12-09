@@ -1,4 +1,4 @@
-# The DVSS vocabulary as supplied in STDARC archive
+# The DVSS vocabulary as supplied in the STDARC archive
 
 This list was generated using the ALIST command like this:
 ```
