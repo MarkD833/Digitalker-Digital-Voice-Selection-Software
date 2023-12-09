@@ -40,6 +40,17 @@ Your CP/M system is now setup and you can try running it by double clicking on t
 
 Head on over to the [bitsavers website](http://bitsavers.informatik.uni-stuttgart.de/components/national/digitalker/NSC_DIGITALKER_CPM/) and download these 2 files:
 
-> nsc_digitalker_archive_disk.img
-> nsc_digitalker_porgam_disk.img  (their spelling, not mine!)
+- nsc_digitalker_archive_disk.img
+- nsc_digitalker_porgam_disk.img  (their spelling, not mine!)
+
+Then grab the CPM Tools GUI program from [Heinpragt software](https://www.heinpragt-software.com/cpmbox-a-cpm-2-2-emulator/) - scroll down to the section CPM Disks and click the link where it says "download it here".
+
+Run the CPM Tools GUI program and:
+1. Where it says "Image File", click the Select button and naviagte to where you downloaded the nsc_digitalker_archive_disk.img file and open the file.
+2. If the archive opens correctly, then 3 files should be listed: crcklist.crc, stdarc.dat and stdarc.idx.
+3. On the right hand side, navigate to the drive and folder where you put your RunCPM.exe file and then navigate to the B subfolder and then the 0 subfolder.
+4. Click the button with the arrow marked (G) to extract the files from the archive and place them into the \B\0 folder.
+5. Repeat the process but this time with the nsc_digitalker_pogram_disk.img file. Note that this archive also has a file in it called crcklist.crc and the CPM Tools GUI program will ask you if it's OK to overwrite it. You can say yes or no here as the file isn't needed - it's just a checksum file for checking the archive integrity.
+
+That's it. You should now have a CP/M emulator setup with the Digitalker DVSS software installed on the B: drive.
 
