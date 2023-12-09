@@ -1,8 +1,18 @@
-# Guide to setting up a CP/M emulator on Windows 10
+# A basic tour of the Digitalker DVSS files
 
-This file is part of my exploration of the National Semiconductor Digitalker Vocabulary Selection Software (DTSW-500) and details my progress in setting up a CP/M emulator that can be used for exploring and experimenting with the DVSS program suite.
+This text documents what I have discovered to date about the DVSS suite.
 
-## Background
+## The files
+
+There are 6 executable files:
+```
+ALIST  - list the contents of an archive
+CRCK   – checksum calculator
+IBUILD - Digitalker I ROM image builder
+IBURN  - ROM image programming for the Starplex
+VLC    - vocabulary list compiler
+VLE    - vocabulary list editor
+```
 
 Once I got the DVSS programs to run on my CP/M system, it became apparent that it was a real pain trying to transfer files between my CP/M system and my Windows 10 PC. This is most likely due to my inexperience with the CP/M OS.
 
