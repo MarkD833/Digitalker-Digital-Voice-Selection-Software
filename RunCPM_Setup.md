@@ -4,6 +4,32 @@ This file is part of my exploration of the National Semiconductor Digitalker Voc
 
 ## Background
 
+Once I got the DVSS programs to run on my CP/M system, it became apparent that it was a real pain trying to transfer files between my CP/M system and my Windows 10 PC. This is most likely due to my inexperience with the CP/M OS.
+
+I also wanted to try and make my findings available to more than just people interested in Digitalkler who also happend to have some CP/M hardware.
+
+I started looking for a CP/M emulator to see what options there were. There are a few emulators out there, but the one that caught my eye is called [RunCPM](https://github.com/MockbaTheBorg/RunCPM). The particularly interesting feature that caught my eye was:
+
+> RunCPM emulates the CP/M disks and user areas by means of subfolders under the RunCPM executable location
+
+Hooray, no more transferring files between CP/M and WIndows 10.
+
+## Getting and building RunCPM
+
+Get RunCPM from the link above. RunCPM is supplied as source code that needs building for your particular PC. I have the free version of Visual Studio 2022 and the solution file opened without any problems for me. I then simply built the program without changing any settings.
+
+This results in a RunCPM.exe file being created.
+
+## Setting up RunCPM
+
+Once you have the executable file, there a few simple folders that need setting up.
+
+Start by creating a folder for your RunCPM.exe file. I created D:\RunCPM as mine. I then created a folder called A (upper case) with subfolder inside the A folder called 0 (zero). I also created folders called B & C, each with a subfolder called 0.
+
+My folder layout looks like this:
+
+![RunCPM Folder LayoutYellow boxes](https://github.com/MarkD833/Digitalker-Digital-Voice-Selection-Software/images/YellowBoxes.JPG)
+
 I've recently built an Arduino shield for my Digitialker chip which has been stored in its box for 25+ years! My incentive to create the shield was given a boost by the discovery of quite a few ROM dumps of various pre-configured ROM vocabularies uploaded to the [Internet Archive](https://archive.org/details/digitalker).
 
 This was give a further boost by the recent appearance of a National Semiconductor software product called the Digitalker Vocabulary Selection Software (DTSW-500) on the [bitsavers website](http://bitsavers.informatik.uni-stuttgart.de/components/national/digitalker/NSC_DIGITALKER_CPM/).
