@@ -1,4 +1,6 @@
-# Guide to using the National Semiconductor Digitalker Vocabulary Selection Software (DVSS)
+# Guide to setting up a CP/M emulator on Windows 10
+
+This file is part of my exploration of the National Semiconductor Digitalker Vocabulary Selection Software (DTSW-500) and details my progress in setting up a CP/M emulator that can be used for exploring and experimenting with the DVSS program suite.
 
 ## Background
 
