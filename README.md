@@ -37,6 +37,6 @@ I've [documented what I've discovered](https://github.com/MarkD833/Digitalker-Di
 
 # A walkthrough creating a custom speech ROM
 
-After playing with the DVSS programs I've figured out how to create custom speech ROMs for the DIgitalker chip. I've created a sample [walkthough](CustomROM.md) that hopefully should allow others to create custom ROMs too.
+After playing with the DVSS programs I've figured out how to create custom speech ROMs for the Digitalker chip. I've created a sample [walkthough](CustomROM.md) that hopefully should allow others to create custom ROMs too.
 
-- Mark.
+Have fun!
