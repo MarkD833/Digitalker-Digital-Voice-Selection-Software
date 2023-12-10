@@ -69,4 +69,4 @@ Set the rest of the settings in the dialog box like this:
 
 Then click "Replace All". The end of the file then looks like this:
 
-![Notepad_pp Replaced](/images/Npp_Replaced.png)
+![Notepad_pp_Replaced](/images/npp_Replaced.png)
