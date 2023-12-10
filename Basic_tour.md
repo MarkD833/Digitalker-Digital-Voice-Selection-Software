@@ -31,6 +31,13 @@ CRCKLIST.CRC - this it a list of checksums for the various files
 DVSSBT.OVR   - likely some sort of overlay file used by the executables
 ```
 
+* [ALIST](#ALIST.COM)  - list the contents of an archive
+CRCK   – checksum calculator
+IBUILD - Digitalker I ROM image builder
+IBURN  - ROM image programming for the Starplex
+VLC    - vocabulary list compiler
+VLE    - vocabulary list editor
+
 ## A tour of some of the files in more detail
 
 The DVSS files are on the B drive. Within the CP/M emulator just type B: to change to the B drive.
