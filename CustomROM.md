@@ -61,6 +61,7 @@ Then
 * select Search->Replace from the menu (or Ctrl+H)
 * Set "Find what" to the = character
 * Set "Replace with" to \x1A
+* Tick "In selection" - doesn't show up in my screenshot for some reason!
 
 Set the rest of the settings in the dialog box like this:
 
