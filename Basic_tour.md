@@ -22,7 +22,7 @@ There are 4 demonstration VERIFY files which are the key to creating more ROMs:
 * VERIFY.VOC – source file of words/phrases/sounds to speak
 * VERIFY.WRK – an intermediate work file
 
-I've [detailed what I've discovered](/Verify.md) about these files separately.
+I've [detailed what I've discovered](/Verify.md) about the VERIFY files separately.
 
 The archive disk consists of:
 * CRCKLIST.CRC - this it a list of checksums for the various files

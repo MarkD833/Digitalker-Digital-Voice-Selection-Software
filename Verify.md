@@ -1,6 +1,6 @@
 # The VERIFY.* demonstration files 
 
-The program disk archive contains 4 files - the .ROM, .SUB, .VOC and .WRK as part of an example ROM setup.
+The DVSS program disk archive contains 4 files - VERIFY.ROM, VERIFY.SUB, VERIFY.VOC and VERIFY.WRK as part of an example ROM setup.
 
 The starting point is the .VOC file. It is processed by the vocabulary list compiler (VLC) and generates the .WRK file.
 
@@ -10,11 +10,11 @@ The .ROM file is the file that is programmed into a PROM.
 
 The .SUB file is a batch file that automates the process and is used by the CP/M SUBMIT.COM batch processing command.
 
-## The VERIFY.VOC file format
+## The VERIFY.VOC file
 
-The VERIFY.VOC file is a plain text file that holds the words and phrases that are going to be built into a ROM.
+The VERIFY.VOC file is a plain text file that holds the words and phrases that user would like to assemble into a custom speech ROM.
 
-Here’s the contents of the VERIFY.VOC file from the DVSS archive:
+Here’s the contents of the VERIFY.VOC file from the DVSS archive (padding stripped from the end of the file):
 ```
 #
 # This is a test vocabulary used to verify DVSS
@@ -36,37 +36,37 @@ Here’s the contents of the VERIFY.VOC file from the DVSS archive:
 
 12: that.r sil40 is.r sil40 correct
 ```
-I programmed the VERIFY.ROM file into my flash chip on my Digitalker board. 
+I programmed the VERIFY.ROM file supplied as part of DVSS into the flash chip on my Digitalker board. 
 
-When I instruct Digitalker to say word/phrase 0, it speaks “WELCOME TO D V S S”.
+When I instructed Digitalker to say word/phrase 0, it speaks “WELCOME TO D V S S”
 
-For word/phrase 1, it speaks “ENTER 1 MILLION DOLLARS”.
+For word/phrase 1, it speaks “ENTER 1 MILLION DOLLARS”
 
-For word/phrase 2, it speaks “WARNING DANGER EVACUATE EXTREME FAILURE”.
+For word/phrase 2, it speaks “WARNING DANGER EVACUATE EXTREME FAILURE”
 
-For word/phrase 3, it speaks “GET READY FOR A ONE NANO SECOND DELAY”.
+For word/phrase 3, it speaks “GET READY FOR A ONE NANO SECOND DELAY”
 
-For word/phrase 4, it speaks “GET OUT OF THE RAIN”.
+For word/phrase 4, it speaks “GET OUT OF THE RAIN”
 
-For word/phrase 10, it speaks “SPELL THE WORD WEDNESDAY”.
+For word/phrase 10, it speaks “SPELL THE WORD WEDNESDAY”
 
-For word/phrase 12, it speaks “THAT IS CORRECT”.
+For word/phrase 12, it speaks “THAT IS CORRECT”
 
 ## The format of VERIFY.VOC
 
 This is what I’ve discovered so far about the format of the VERIFY.VOC file.
 
-A line starting with a # is a comment line and is ignored.
+* A line starting with a # is a comment line and is ignored.
 
-A line ending with a \ indicates a continuation on the next line.
+* A line ending with a \ indicates a continuation on the next line.
 
-Each line ends with a CR (ASCII code 13) and an LF (ASCII code 10).
+* Each line ends with a CR (ASCII code 13) and an LF (ASCII code 10).
 
-There is a blank line between each entry in the file consisting of just a CR and an LF. I don’t know if this is purely cosmetic or a requirement at the moment.
+* There is a blank line between each entry in the file consisting of just a CR and an LF. I don’t know if this is purely cosmetic or a requirement at the moment.
 
-A new ROM word (or phrase) starts with a number and a colon. The number is the same number that you pass to the Digitalker chip when selecting what to speak.
+* A new ROM word (or phrase) starts with a number and a colon. The number is the same number that you pass to the Digitalker chip when selecting what to speak.
 
-Each number must always be larger than the previous number and the numbers don’t have to be sequential as you can see from the VERIFY.VOC file.
+* Each number must always be larger than the previous number and the numbers don’t have to be sequential as you can see from the VERIFY.VOC file.
  
 After the colon there is a space and then the name of the sound in the archive file STDARC.DAT. This is the name as reported by the ALIST command. I don’t know if this is case sensitive or not so probably best to just stick with lower case.
 
