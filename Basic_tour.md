@@ -31,7 +31,7 @@ CRCKLIST.CRC - this it a list of checksums for the various files
 DVSSBT.OVR   - likely some sort of overlay file used by the executables
 ```
 
-* [ALIST](#ALIST.COM)  - list the contents of an archive
+* [ALIST](#ALIST)  - list the contents of an archive
 CRCK   – checksum calculator
 IBUILD - Digitalker I ROM image builder
 IBURN  - ROM image programming for the Starplex
