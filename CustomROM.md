@@ -1,4 +1,4 @@
-# Creating your own custom speech ROMs 
+# Creating your own custom Digitalker speech ROMs 
 
 ## Step 1 – Create the list of words/phrases
 
@@ -42,7 +42,7 @@ I started with a plain text file and using [Notepad++](https://notepad-plus-plus
 ```
 Note the blank line between each entry in the file.
 
-The the words you would like to use must be spelt as they are in the vocabulary list produced by the ALIST command.
+The words you would like to use must be spelt as they are in the vocabulary list produced by the ALIST command.
  
 I wanted to know if there was a difference between the sound for a numerical digit (i.e. 1, 2, 3 etc) and the word equivalent (i.e. one, two, three etc). I also wanted to have a quick play with the word endings (entries 11 to 14) and have a go at my first phrase.
 
@@ -73,7 +73,7 @@ Then click "Replace All". The end of the file then looks like this:
 
 ![Notepad_pp_Replaced](/images/npp_Replaced.png)
 
-Save the file in the \B\0 folder (assuming you are using the RunCPM emulator). Let's assume you called it TEST.VOC.
+Save the file in the \B\0 folder (assuming you are using the RunCPM emulator). Let's assume you called it TEST1.VOC.
 
 ## Step 3 - Compile the list of vocabulary words
 
@@ -290,19 +290,18 @@ I don't recommend using the '-t' command line option with IBUILD as it doesn't r
 
 ## Step 5 - Testing the ROM
 
-The TEST1.ROM file should now be visible in the \B\0 folder when viewed using Windoes 10 file explorer. You should program this file into your chosen chip - FLASH or EEPROM or EPROM etc - and put the chip in your Digitalker board.
+The TEST1.ROM file should now be visible in the \B\0 folder when viewed using Windows 10 file explorer. You should program this file into your chosen chip - FLASH or EEPROM or EPROM etc - and install the chip in your Digitalker board.
 
 You should now be able to instruct your Digitalker chip to speak each message by referring to the number associated with it in the original TEST.VOC file.
 
-If I tell the Digitalker chip to play back messages 0, 1, 2, 3, 4 and 5 then it says the words zero, one, two, three, four and five.
-
-If I tell the Digitalker chip to play back messages 6, 7, 8, 9 and 10 then it says the words one, two, three, four and five again.
+Referring to my test messages file:
+* If I tell the Digitalker chip to play back messages 0, 1, 2, 3, 4 and 5 then it says the words zero, one, two, three, four and five.
+* If I tell the Digitalker chip to play back messages 6, 7, 8, 9 and 10 then it says the words one, two, three, four and five again.
 
 Constructing a custom message ROM with either the numbers 1, 2, 3 etc generates the same audio output as using the words one, two, three etc.
 
-Playing back word 11 results in the word “close” and playing back words 12, 13 and 14 results in 3 variations of trying to say the word “closing”.
-
-Playing back word 15 results in the phrase “THE CUSTOMER IS CORRECT” being spoken.
+* Playing back word 11 results in the word “close” and playing back words 12, 13 and 14 results in 3 variations of trying to say the word “closing”.
+* Playing back word 15 results in the phrase “THE CUSTOMER IS CORRECT” being spoken.
 
 There’s obviously some tweaking to be done to discover more about the various word endings etc, but that’s my walkthrough for creating a custom ROM.
 
