@@ -1,4 +1,16 @@
-# The VERIFY.VOC file format
+# The VERIFY.* demonstration files 
+
+The program disk archive contains 4 files - the .ROM, .SUB, .VOC and .WRK as part of an example ROM setup.
+
+The starting point is the .VOC file. It is processed by the vocabulary list compiler (VLC) and generates the .WRK file.
+
+The .WRK file is then used by the Digitalker I ROM image builder (IBUILD) to creare the .ROM file.
+
+The .ROM file is the file that is programmed into a PROM.
+
+The .SUB file is a batch file that automates the process and is used by the CP/M SUBMIT.COM batch processing command.
+
+## The VERIFY.VOC file format
 
 The VERIFY.VOC file is a plain text file that holds the words and phrases that are going to be built into a ROM.
 
