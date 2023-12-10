@@ -4,15 +4,20 @@ This text documents what I have discovered to date about the DVSS suite.
 
 ## The files
 
-There are 6 executable files:
+The program disk consists of:
+* [ALIST](#ALIST)  - list the contents of an archive
+* [CRCK](#CRCK)   – checksum calculator
+* [IBUILD](IBUILD) - Digitalker I ROM image builder
+* [IBURN](IBURN)  - ROM image programming for the Starplex
+* [VLC](VLC)    - vocabulary list compiler
+* [VLE](VLE)    - vocabulary list editor
+
+And there are 2 additional files:
 ```
-ALIST  - list the contents of an archive
-CRCK   – checksum calculator
-IBUILD - Digitalker I ROM image builder
-IBURN  - ROM image programming for the Starplex
-VLC    - vocabulary list compiler
-VLE    - vocabulary list editor
+CRCKLIST.CRC - this it a list of checksums for the various files
+DVSSBT.OVR   - likely some sort of overlay file used by the executables
 ```
+
 There are 4 "VERIFY" files which are the key:
 ```
 VERIFY.ROM – prebuilt ROM image that can be burnt to FLASH
@@ -20,23 +25,12 @@ VERIFY.SUB – a script that builds the ROM image
 VERIFY.VOC – source file of words/phrases/sounds to speak
 VERIFY.WRK – an intermediate work file
 ```
-There are 2 library files that hold the vocabulary:
-```
-STDARC.DAT - database of sounds, words, numbers etc
-STDARC.IDX - likely the index into the database
-```
-And there are 2 additional files:
-```
-CRCKLIST.CRC - this it a list of checksums for the various files
-DVSSBT.OVR   - likely some sort of overlay file used by the executables
-```
+The archive disk consists of:
+* CRCKLIST.CRC - this it a list of checksums for the various files
+* STDARC.DAT   - database of sounds, words, numbers etc
+* STDARC.IDX   - likely the index into the database
 
-* [ALIST](#ALIST)  - list the contents of an archive
-CRCK   – checksum calculator
-IBUILD - Digitalker I ROM image builder
-IBURN  - ROM image programming for the Starplex
-VLC    - vocabulary list compiler
-VLE    - vocabulary list editor
+
 
 ## A tour of some of the files in more detail
 
@@ -74,7 +68,9 @@ alist stdarc
 This caused the ALIST program to dump out the contents of the STDARC archive. You can see the output of 600+ vocabulary entries [here](https://github.com/MarkD833/Digitalker-Digital-Voice-Selection-Software/blob/main/Vocabulary.md).
 
 ---
-### CRCK.COM – CRC calculation
+### CRCK
+
+The CRCK.COM program calcuates the checksum of a single file or a set of files.
 
 Typing CRCK ? didn't provide any useful hints, but omitting the ? did:
 ```
@@ -105,7 +101,9 @@ DONE
 The value (checksum) reported is the same as that detailed in the CRCLIST.CRC file in the program archive.
 
 ---
-### IBUILD.COM – Digitalker I ROM image builder
+### IBUILD
+
+The IBUILD.COM program is the Digitalker I ROM image builder - i.e. the program that creates the ROM(s) that can be programmed into flash devices.
 
 Typing IBUILD ? results in the following:
 ```
@@ -240,7 +238,9 @@ The byte count at the end of the process looks useful in determining when the RO
 It also looks like the IBUILD program is working with a pair of ROMs to give a total capacity of 16Kbytes.
 
 ---
-### IBURN.COM – ROM image programming for the Starplex 
+### IBURN
+
+The IBURN.COM program is the ROM image programming for the Starplex machine. “Starplex” was a National Semiconductor development system that appeared to include the ability to program PROMs.
 
 Typing IBURN ? results in the following:
 ```
@@ -256,12 +256,12 @@ Arguments:
         'imagefile' -- the name of an existing ROM image file
         'promtype' -- type of PROM to program (2716 or 2732)
 ```
-“Starplex” was a National Semiconductor development system that appeared to include a PROM programmer functionality.
-
 I think this program can be ignored as the created ROMs will now be burnt using a modern PROM programmer.
 
 ---
-### VLC.COM – Vocabulary list compiler
+### VLC
+
+The VLC.COM program is the vocabulary list compiler.
 
 Typing VLC ? results in the following:
 ```
@@ -393,7 +393,9 @@ Run complete
 VLC seems to be ok with the sample file supplied and doesn’t report any errors.
 
 ---
-### VLE.COM – Vocabulary list editor
+### VLE
+
+The VLE.COM program is the vocabulary list editor.
 
 Typing VLE ? results in the following:
 ```
@@ -417,7 +419,9 @@ There are no clues as to what the actual commands are once the editor is running
 If its purpose is to create the .voc file for the vocabulary list compiler, then I think VLE can be ignored and a simple plain text editor on the PC would suffice.
 
 ---
-### CRCLIST.CRC
+### CRCLIST
+
+The CRCLIST.CRC file contains the calculated checksums.
 
 Viewing this file in Notepad++ (and HxD) indicates that it is an ASCII text file that seems to be padded at the end, to make the file a multiple of 128 bytes long, with the ASCII character 27 (0x1A) => SUB which appears to equate to CTRL+Z.
 
