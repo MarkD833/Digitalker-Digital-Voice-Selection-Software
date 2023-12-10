@@ -1,4 +1,4 @@
-# The VERIFY.* demonstration files 
+# Creating your own custom speech ROMs 
 
 The DVSS program disk archive contains 4 files - VERIFY.ROM, VERIFY.SUB, VERIFY.VOC and VERIFY.WRK as part of an example ROM setup.
 

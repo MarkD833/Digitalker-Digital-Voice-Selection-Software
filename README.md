@@ -35,4 +35,8 @@ The VERIFY.VOC file is used to specify the words, phrases and sounds that the us
 
 I've [documented what I've discovered](https://github.com/MarkD833/Digitalker-Digital-Voice-Selection-Software/blob/main/Verify.md) about this file as it is the key to creating a custom ROM set.
 
+# A walkthrough creating a custom speech ROM
 
+After playing with the DVSS programs I've figured out how to create custom speech ROMs for the DIgitalker chip. I've created a sample [walkthough](CustomROM.md) that hopefully should allow others to create custom ROMs too.
+
+- Mark.
