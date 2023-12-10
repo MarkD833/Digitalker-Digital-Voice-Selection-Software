@@ -31,7 +31,7 @@ CRCKLIST.CRC - this it a list of checksums for the various files
 DVSSBT.OVR   - likely some sort of overlay file used by the executables
 ```
 
-* [ALIST](#ALIST)  - list the contents of an archive
+* [ALIST](#ALIST.COM)  - list the contents of an archive
 CRCK   – checksum calculator
 IBUILD - Digitalker I ROM image builder
 IBURN  - ROM image programming for the Starplex
@@ -45,7 +45,9 @@ The DVSS files are on the B drive. Within the CP/M emulator just type B: to chan
 I found that for most files, typing the name of the file followed by a ? (question mark) caused the program to display some usage information. For each of the programs I tried on the CP/M emulator, I've shown the output generated.
 
 ---
-### ALIST.COM - lists the contents of an archive
+### ALIST.COM
+
+The ALIST.COM program lists the contents of a vocabulary archive.
 
 Typing ALIST ? results in the following:
 ```
