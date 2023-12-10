@@ -28,13 +28,13 @@ Start by creating a folder for your RunCPM.exe file. I created D:\RunCPM as mine
 
 My folder layout looks like this:
 
-![RunCPM Folder Layout](https://github.com/MarkD833/Digitalker-Digital-Voice-Selection-Software/blob/main/images/RunCPM_folders.png)
+![RunCPM Folder Layout](/images/RunCPM_folders.png)
 
 In the zip archive of RunCPM, there is a folder called DISK. Inside that folder there is a zip file called A.ZIP. Unzip all the files into your \A\0 folder.
 
 Your CP/M system is now setup and you can try running it by double clicking on the RunCPM.exe file. If successful, you should have a window like this one appear:
 
-![RunCPM shell](https://github.com/MarkD833/Digitalker-Digital-Voice-Selection-Software/blob/main/images/RunCPM_shell.png)
+![RunCPM shell](/images/RunCPM_shell.png)
 
 ## Extracting the Digitalker DVSS software from the archive files
 
