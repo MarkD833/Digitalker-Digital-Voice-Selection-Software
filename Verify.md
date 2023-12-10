@@ -4,7 +4,7 @@ The DVSS program disk archive contains 4 files - VERIFY.ROM, VERIFY.SUB, VERIFY.
 
 The starting point is the .VOC file. It is processed by the vocabulary list compiler (VLC) and generates the .WRK file.
 
-The .WRK file is then used by the Digitalker I ROM image builder (IBUILD) to creare the .ROM file.
+The .WRK file is then used by the Digitalker I ROM image builder (IBUILD) to create the .ROM file.
 
 The .ROM file is the file that is programmed into a PROM.
 
@@ -58,7 +58,7 @@ This is what I’ve discovered so far about the format of the VERIFY.VOC file.
 
 * A line starting with a # is a comment line and is ignored.
 
-* A line ending with a \ indicates a continuation on the next line.
+* A line ending with a \ indicates that the sequence of sounds continues on the next line. The continuation line starts with an ASCII TAB character (0x09).
 
 * Each line ends with a CR (ASCII code 13) and an LF (ASCII code 10).
 
@@ -69,6 +69,8 @@ This is what I’ve discovered so far about the format of the VERIFY.VOC file.
 * Each number must always be larger than the previous number and the numbers don’t have to be sequential as you can see from the VERIFY.VOC file.
  
 * After the colon there is a space and then the name of the sound in the archive file STDARC.DAT. This is the name as reported by the ALIST command. I don’t know if this is case sensitive or not so probably best to just stick with lower case.
+
+* If your desired phrase consistes of more than one sound, then each sound is separated from the next by a space.
 
 If you wanted word 0 in your ROM to be the word “busy”, then the line would look like this:
 ```
