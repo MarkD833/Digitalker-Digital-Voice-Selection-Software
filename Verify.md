@@ -62,7 +62,7 @@ This is what I’ve discovered so far about the format of the VERIFY.VOC file.
 
 * Each line ends with a CR (ASCII code 13) and an LF (ASCII code 10).
 
-* There is a blank line between each entry in the file consisting of just a CR and an LF. I don’t know if this is purely cosmetic or a requirement at the moment.
+* There is a blank line between each entry in the file consisting of just a CR and an LF. My testing shows that the blank line isn't necessary, but it does make reading the file abit easier.
 
 * A new ROM word (or phrase) starts with a number and a colon. The number is the same number that you pass to the Digitalker chip when selecting what to speak.
 

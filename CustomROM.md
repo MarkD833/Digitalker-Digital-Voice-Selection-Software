@@ -40,7 +40,7 @@ I started with a plain text file and using [Notepad++](https://notepad-plus-plus
 
 15: the.r sil40 customer sil40 is.r sil40 correct
 ```
-Note the blank line between each entry in the file.
+Note the blank line between each entry in the file. I've discovered that this isn't necessary but it makes for easier reading of the file.
 
 The words you would like to use must be spelt as they are in the vocabulary list produced by the ALIST command.
  
@@ -178,7 +178,7 @@ Workfile created: <TEST1.WRK>
 
 Run complete
 ```
-The number of messages reported should equal the number of messages you've defined in your vocabulary file.
+The number of messages reported should equal the number of messages you've defined in your vocabulary file. If VLC cannot find the word you have types, then it will report that there is a missing word.
 
 ## Step 4 - Building the ROM(s)
 
