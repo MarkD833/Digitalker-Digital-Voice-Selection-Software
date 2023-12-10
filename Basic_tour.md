@@ -7,10 +7,10 @@ This text documents what I have discovered to date about the DVSS suite.
 The program disk consists of:
 * [ALIST](#ALIST) - list the contents of an archive
 * [CRCK](#CRCK) – checksum calculator
-* [IBUILD](IBUILD) - Digitalker I ROM image builder
-* [IBURN](IBURN) - ROM image programming for the Starplex
-* [VLC](VLC) - vocabulary list compiler
-* [VLE](VLE) - vocabulary list editor
+* [IBUILD](#IBUILD) - Digitalker I ROM image builder
+* [IBURN](#IBURN) - ROM image programming for the Starplex
+* [VLC](#VLC) - vocabulary list compiler
+* [VLE](#VLE) - vocabulary list editor
 
 And there are 2 additional files:
 * CRCKLIST.CRC - this it a list of checksums for the various files
