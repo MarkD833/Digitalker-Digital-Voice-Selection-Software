@@ -37,6 +37,10 @@ I've [documented what I've discovered](https://github.com/MarkD833/Digitalker-Di
 
 # A walkthrough creating a custom speech ROM
 
-After playing with the DVSS programs I've figured out how to create custom speech ROMs for the Digitalker chip. I've created a sample [walkthough](CustomROM.md) that hopefully should allow others to create custom ROMs too.
+After playing with the DVSS programs I've figured out how to create custom speech ROMs for the Digitalker chip. I've created a sample [walkthough](/CustomROM.md) that hopefully should allow others to create custom ROMs too. Note that the custom ROMs are limited to using the words and sounds supplied with the original DVSS package.
 
+# A set of ROMs with all the words in the the DVSS library
+
+I've created a set of 5x 16Kbyte ROMs that hold all the words and sounds that are supplied with DVSS. They are in the ROM folder called DVSSROM1.ROM, DVSSROM2.ROM, DVSSROM3.ROM, DVSSROM4.ROM and DVSSROM5.ROM. The index to the ROMs is in ROMINDX.md.
+ 
 Have fun!
