@@ -50,34 +50,15 @@ I wanted to know if there was a difference between the sound for a numerical dig
 
 This seems to be a CP/M requirement. The text files I've come across so far have all been padded out at the end of the file with ASCII character 27 (0x1A) - appears as SUB in Notepad++ - so that the overall file length is a multiple of 128 bytes.
 
-When using Notepad++, there is a count of the number of bytes in the file displayed in the status bar at the bottom of the screen. For my test file it says 273, so I need to pad the file to 384 bytes (3 x 128).
-
-In order to pad the file out to 384 bytes, I placed the cursor on the line below the 15: and then held down the = key to repeatedly insert the = symbol whilst watching the reported length of the file, stopping when it reached 384.
-
-The end of my file then looked like this:
-
-![Notepad_pp](/images/Npp.png)
-
-Then
-* highlight all the = that are at the end of the file
-* select Search->Replace from the menu (or Ctrl+H)
-* Set "Find what" to the = character
-* Set "Replace with" to \x1A
-* Tick "In selection" - if you don't, then the first = symbol doesn't get replaced for saome reason.
-
-Set the rest of the settings in the dialog box like this:
-
-![Notepad_pp Replace](/images/Npp_Replace.png)
-
-Then click "Replace All". The end of the file then looks like this:
-
-![Notepad_pp_Replaced](/images/npp_Replaced.png)
+However, I've discovered that if my files are terminated with 128x the 0x1A (SUB) ASCII character, then the DVSS programs don't complain.
+ 
+When using Notepad++, I can put 128 of the # character at the end of the file, highlight all the # characters and use the Replace command to replace them with the character \x1A.
 
 Save the file in the \B\0 folder (assuming you are using the RunCPM emulator). Let's assume you called it TEST1.VOC.
 
 ## Step 3 - Compile the list of vocabulary words
 
-Run the RunCPM emulator and switch to the B drive by typing B:<enter> at the prompt. CHeck that you are in the right place by typing dir<enter> to get a listing of the files.
+Run the RunCPM emulator and switch to the B drive by typing B:<enter> at the prompt. Check that you are in the right place by typing dir<enter> to get a listing of the files.
 
 You should see the various DVSS files and your TEST.VOC file.
 
@@ -305,6 +286,5 @@ Constructing a custom message ROM with either the numbers 1, 2, 3 etc generates 
 
 There’s obviously some tweaking to be done to discover more about the various word endings etc, but that’s my walkthrough for creating a custom ROM.
 
-I’ve yet to see what happens if I create a set of words that exceeds 16Kbytes, but I think I might try and create a set of ROM files that simply hold all the words in the vocabulary archive.
-
+NOTE: Because of the way the ROM is built, some ROMs will contain more wores (or phrases) than others. It seems to be down to the way that parts of the speech data can be reused within the ROM. The more speech data that can be reused, then the more words the ROM can hold.
 
