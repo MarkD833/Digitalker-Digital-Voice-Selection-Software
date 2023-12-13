@@ -31,7 +31,7 @@ Once I had my CP/M emulator setup with the DVSS software, I had a browse around 
 
 # The VERIFY.VOC file
 
-The VERIFY.VOC file is used to specify the words, phrases and sounds that the user wants to include in the final ROMs.
+The VERIFY.VOC (VOC = vocabulary) file is used to specify the words, phrases and sounds that the user wants to include in the final ROMs.
 
 I've [documented what I've discovered](https://github.com/MarkD833/Digitalker-Digital-Voice-Selection-Software/blob/main/Verify.md) about this file as it is the key to creating a custom ROM set.
 
@@ -41,6 +41,6 @@ After playing with the DVSS programs I've figured out how to create custom speec
 
 # A set of ROMs with all the words in the the DVSS library
 
-I've created a set of 5x 16Kbyte ROMs that hold all the words and sounds that are supplied with DVSS. They are in the ROM folder called DVSSROM1.ROM, DVSSROM2.ROM, DVSSROM3.ROM, DVSSROM4.ROM and DVSSROM5.ROM. The index to the ROMs is in ROMINDX.md.
+I've created a set of 5x 16Kbyte ROMs that hold all the words and sounds that are supplied with DVSS. Look for them in the ROMs folder.
  
 Have fun!
