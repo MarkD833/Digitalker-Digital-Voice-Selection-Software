@@ -41,6 +41,6 @@ After playing with the DVSS programs I've figured out how to create custom speec
 
 # A set of ROMs with all the words in the the DVSS library
 
-I've created a set of 5x 16Kbyte ROMs that hold all the words and sounds that are supplied with DVSS. Look for them in the ROMs folder.
+I've created a set of 5x 16Kbyte ROMs that hold all the words and sounds that are supplied with DVSS. Look for them in the [ROMs](/ROMs) folder.
  
 Have fun!
