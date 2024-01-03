@@ -286,5 +286,5 @@ Constructing a custom message ROM with either the numbers 1, 2, 3 etc generates 
 
 There’s obviously some tweaking to be done to discover more about the various word endings etc, but that’s my walkthrough for creating a custom ROM.
 
-NOTE: Because of the way the ROM is built, some ROMs will contain more wores (or phrases) than others. It seems to be down to the way that parts of the speech data can be reused within the ROM. The more speech data that can be reused, then the more words the ROM can hold.
+NOTE: Because of the way the ROM is built, some ROMs will contain more words (or phrases) than others. It seems to be down to the way that parts of the speech data can be reused within the ROM. The more speech data that can be reused, then the more words the ROM can hold.
 
